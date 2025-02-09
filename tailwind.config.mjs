@@ -8,10 +8,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        // light mode
+        lightBackground: "#f4f4f5",
+        lightHighlight: "#0F172A",
+        lightPrimary: "#003135",
+        // lightHover: "",
+
+        lightHover: "#fcf4ff",
+        darkHover: "#2a004a",
+        darkTheme: "#11001f",
+
+        // dark mode
+        darkBackground: "",
+        darkHighlight: "",
+        darkPrimary: "",
+        // darkHover: "",
+      },
+      fontFamily: {
+        Outfit: ["Outfit", "sans-serif"],
+        Ovo: ["Ovo", "serif"],
+        Roboto: ['"Roboto Mono"', "Roboto"],
       },
     },
   },
+  darkMode: "selector",
   plugins: [],
 };
