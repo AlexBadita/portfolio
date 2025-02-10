@@ -1,3 +1,5 @@
+import { assets } from "./assets";
+
 export const links = [
   {
     name: "Home",
@@ -10,5 +12,16 @@ export const links = [
   {
     name: "Contact",
     hash: "#contact",
+  },
+];
+
+export const projects = [
+  {
+    title: "Kanban board",
+    image: assets.project1,
+    description:
+      "A simple kanban board that allows users to manage tasks across three standard columns.",
+    technologies: ["Spring Boot", "React", "MongoDB", "Java"],
+    link: "",
   },
 ];

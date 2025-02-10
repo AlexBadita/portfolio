@@ -10,6 +10,9 @@ export default {
       colors: {
         // light mode
         lightBackground: "#f4f4f5",
+        lightText: "",
+        lightAccent: "#4663ac",
+
         lightHighlight: "#0F172A",
         lightPrimary: "#003135",
         // lightHover: "",

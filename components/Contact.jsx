@@ -22,7 +22,7 @@ const Contact = () => {
       </p>
       <a
         href="#"
-        className="px-10 py-3 border rounded-full bg-black text-white"
+        className="px-10 py-3 border rounded-full text-white bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 shadow-md hover:shadow-lg transition-all duration-300 dark:from-sky-600 dark:to-blue-700 dark:hover:from-sky-700 dark:hover:to-blue-900 dark:border-white/40"
       >
         Contact
       </a>
