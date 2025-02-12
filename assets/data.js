@@ -22,6 +22,6 @@ export const projects = [
     description:
       "A simple kanban board that allows users to manage tasks across three standard columns.",
     technologies: ["Spring Boot", "React", "MongoDB", "Java"],
-    link: "",
+    link: "https://github.com/AlexBadita/kanban-board",
   },
 ];
