@@ -29,12 +29,12 @@ const Navbar = () => {
     <>
       <header className="z-[999] relative">
         <motion.div
-          className="hidden md:flex fixed top-4 left-1/2 -translate-x-1/2 border rounded-lg border-gray-200 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-slate-900 dark:border-white/40 dark:bg-opacity-80"
+          className="hidden md:flex fixed top-4 left-1/2 -translate-x-1/2 border rounded-lg border-gray-200 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-slate-900 dark:border-white/40"
           initial={{ y: -100, x: "-50%", opacity: 0 }}
           animate={{ y: 0, x: "-50%", opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          <ul className="flex w-full flex-wrap items-center justify-center gap-1 px-1.5 py-1.5 text-[0.9rem] font-medium text-slate-600 dark:text-slate-300">
+          <ul className="flex w-full flex-wrap items-center justify-center gap-1 px-1.5 py-1.5 font-medium text-slate-600 dark:text-slate-300">
             {links.map((link) => (
               <li
                 className="flex items-center justify-center relative"
@@ -44,10 +44,10 @@ const Navbar = () => {
               >
                 <Link
                   className={clsx(
-                    "flex w-full items-center justify-center px-4 py-1.5 rounded-md transition",
+                    "flex w-full font-semibold font-Roboto items-center justify-center px-4 py-1.5 rounded-md transition",
                     {
                       "text-white": activeSection === link.name,
-                      "hover:text-sky-600 dark:hover:text-sky-300":
+                      "hover:text-amber-600 dark:hover:text-sky-300":
                         activeSection !== link.name,
                     }
                   )}
@@ -61,7 +61,7 @@ const Navbar = () => {
 
                   {link.name === activeSection && (
                     <motion.span
-                      className="bg-gradient-to-r from-sky-500 to-blue-500 dark:from-sky-600 dark:to-blue-700 rounded-md absolute inset-0 -z-10"
+                      className="gradient rounded-md absolute inset-0 -z-10"
                       layoutId="activeSection"
                       transition={{
                         type: "spring",
@@ -90,7 +90,7 @@ const Navbar = () => {
               ) : (
                 <IoMoonOutline
                   size="2rem"
-                  className="text-slate-600 hover:text-sky-600"
+                  className="text-slate-600 hover:text-amber-600"
                 />
               )}
             </button>

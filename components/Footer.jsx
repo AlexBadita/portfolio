@@ -10,7 +10,7 @@ const Footer = () => {
             href="https://github.com/AlexBadita"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-sky-600 transition"
+            className="hover:text-amber-500 dark:hover:text-teal-400 transition"
           >
             <AiFillGithub size="2rem" />
           </a>
@@ -18,7 +18,7 @@ const Footer = () => {
             href="https://www.linkedin.com/in/alexandru-badita/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-sky-600 transition"
+            className="hover:text-amber-500 dark:hover:text-teal-400 transition"
           >
             <AiFillLinkedin size="2rem" />
           </a>
