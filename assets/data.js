@@ -21,15 +21,15 @@ export const projects = [
     image: assets.project1,
     description:
       "A simple kanban board that allows users to manage tasks across three standard columns.",
-    technologies: ["Spring Boot", "React", "PostgreSQL", "Java"],
+    technologies: ["SpringBoot", "React", "PostgreSQL", "Java"],
     link: "https://github.com/AlexBadita/kanban-board",
   },
-  // {
-  //   title: "Kanban board",
-  //   image: assets.project1,
-  //   description:
-  //     "A simple kanban board that allows users to manage tasks across three standard columns.",
-  //   technologies: ["Spring Boot", "React", "PostgreSQL", "Java"],
-  //   link: "https://github.com/AlexBadita/kanban-board",
-  // },
+  {
+    title: "Kanban board",
+    image: assets.project1,
+    description:
+      "A simple kanban board that allows users to manage tasks across three standard columns.",
+    technologies: ["SpringBoot", "React", "PostgreSQL", "Java"],
+    link: "https://github.com/AlexBadita/kanban-board",
+  },
 ];

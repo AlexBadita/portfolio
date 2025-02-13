@@ -1,16 +1,26 @@
 import React from "react";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import { motion } from "framer-motion";
+import {
+  animationFromLeftSmooth,
+  animationFromTopSmooth,
+} from "@/utils/animations";
 
 const Footer = () => {
   return (
     <div className="mb-4">
       <div className="text-center">
-        <div className="flex items-center gap-4 justify-center">
+        <motion.div
+          variants={animationFromTopSmooth(0.5)}
+          whileInView="visible"
+          initial="hidden"
+          className="flex items-center gap-4 justify-center"
+        >
           <a
             href="https://github.com/AlexBadita"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-amber-500 dark:hover:text-teal-400 transition"
+            className="footer-button"
           >
             <AiFillGithub size="2rem" />
           </a>
@@ -18,12 +28,18 @@ const Footer = () => {
             href="https://www.linkedin.com/in/alexandru-badita/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-amber-500 dark:hover:text-teal-400 transition"
+            className="footer-button"
           >
             <AiFillLinkedin size="2rem" />
           </a>
-        </div>
-        <p>Developed by Alexandru Badita</p>
+        </motion.div>
+        <motion.p
+          variants={animationFromLeftSmooth(0.5)}
+          whileInView="visible"
+          initial="hidden"
+        >
+          Developed by Alexandru Badita
+        </motion.p>
       </div>
     </div>
   );

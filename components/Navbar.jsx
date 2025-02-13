@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { links } from "@/assets/data";
 import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
@@ -9,6 +9,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { useActionSectionContext } from "@/context/active-section-context";
 import { useTheme } from "@/context/theme-context";
+import { animationNavbar, animationCloseButton } from "@/utils/animations";
 
 const Navbar = () => {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
@@ -16,23 +17,40 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   const sideMenuRef = useRef();
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
   const openSideMenu = () => {
+    // open side menu
+    setIsSideMenuOpen(true);
     sideMenuRef.current.style.transform = "translateX(-16rem)";
+    // deactivate scroll
+    document.body.style.overflow = "hidden";
   };
 
   const closeSideMenu = () => {
+    // close side menu
+    setIsSideMenuOpen(false);
     sideMenuRef.current.style.transform = "translateX(16rem)";
+    // reactivate scroll
+    document.body.style.overflow = "";
   };
 
   return (
     <>
+      {/* Blurred overlay */}
+      {isSideMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
+          onClick={closeSideMenu}
+        />
+      )}
+
       <header className="z-[999] relative">
         <motion.div
-          className="hidden md:flex fixed top-4 left-1/2 -translate-x-1/2 border rounded-lg border-gray-200 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-slate-900 dark:border-white/40"
-          initial={{ y: -100, x: "-50%", opacity: 0 }}
-          animate={{ y: 0, x: "-50%", opacity: 1 }}
-          transition={{ duration: 0.2 }}
+          variants={animationNavbar()}
+          initial="hidden"
+          animate="visible"
+          className="hidden md:flex fixed top-4 left-1/2 -translate-x-1/2 border rounded-lg border-gray-300 bg-white bg-opacity-70 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-slate-900 dark:border-white/40 dark:bg-opacity-70"
         >
           <ul className="flex w-full flex-wrap items-center justify-center gap-1 px-1.5 py-1.5 font-medium text-slate-600 dark:text-slate-300">
             {links.map((link) => (
@@ -44,10 +62,10 @@ const Navbar = () => {
               >
                 <Link
                   className={clsx(
-                    "flex w-full font-semibold font-Roboto items-center justify-center px-4 py-1.5 rounded-md transition",
+                    "flex w-full font-semibold items-center justify-center px-4 py-1.5 rounded-md transition hover:scale-105",
                     {
                       "text-white": activeSection === link.name,
-                      "hover:text-amber-600 dark:hover:text-sky-300":
+                      "hover:text-amber-600 dark:hover:text-cyan-500":
                         activeSection !== link.name,
                     }
                   )}
@@ -77,30 +95,32 @@ const Navbar = () => {
         </motion.div>
         <div className="fixed top-4 right-4 flex gap-2">
           <motion.div
-            className="flex flex-wrap items-center justify-center p-2 border rounded-full border-gray-200 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-slate-900 dark:border-white/40 dark:bg-opacity-80"
-            initial={{ y: -100, x: "-50%", opacity: 0 }}
-            animate={{ y: 0, x: "-50%", opacity: 1 }}
+            variants={animationNavbar()}
+            initial="hidden"
+            animate="visible"
+            className="navbar-small-button"
           >
-            <button onClick={toggleTheme}>
+            <button
+              onClick={toggleTheme}
+              className="hover:scale-110 transition ease-in-out"
+            >
               {theme === "dark" ? (
-                <IoSunnyOutline
-                  size="2rem"
-                  className="dark:text-slate-300 dark:hover:text-sky-300"
-                />
+                <IoSunnyOutline size="2rem" />
               ) : (
-                <IoMoonOutline
-                  size="2rem"
-                  className="text-slate-600 hover:text-amber-600"
-                />
+                <IoMoonOutline size="2rem" />
               )}
             </button>
           </motion.div>
           <motion.div
-            className="md:hidden flex flex-wrap items-center justify-center p-2 border rounded-full border-gray-200 bg-white hover:bg-gray-300 bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-slate-900 dark:border-white/40 dark:bg-opacity-80"
-            initial={{ y: -100, x: "-50%", opacity: 0 }}
-            animate={{ y: 0, x: "-50%", opacity: 1 }}
+            variants={animationNavbar()}
+            initial="hidden"
+            animate="visible"
+            className="md:hidden navbar-small-button"
           >
-            <button onClick={openSideMenu}>
+            <button
+              onClick={openSideMenu}
+              className="hover:scale-110 transition ease-in-out"
+            >
               <RxHamburgerMenu size="2rem" />
             </button>
           </motion.div>
@@ -108,16 +128,26 @@ const Navbar = () => {
         {/* mobile menu */}
         <ul
           ref={sideMenuRef}
-          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen border border-gray-200 bg-white transition duration-500 dark:bg-slate-900 dark:border-white/40"
+          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen border border-gray-300 bg-white transition duration-500 dark:bg-slate-900 dark:border-white/40"
         >
-          <div className="absolute right-6 top-6" onClick={closeSideMenu}>
+          <motion.div
+            {...animationCloseButton(isSideMenuOpen)}
+            className="absolute right-6 top-6"
+            onClick={closeSideMenu}
+          >
             <RxCross2 size="2rem" className="cursor-pointer" />
-          </div>
+          </motion.div>
           {links.map((link) => (
-            <li key={link.hash}>
+            <li
+              className="flex w-full font-semibold items-center justify-center mt-2"
+              key={link.hash}
+            >
               <Link
                 className={clsx("", {
-                  "text-sky-600": activeSection === link.name,
+                  "gradient px-4 py-1.5 rounded-md":
+                    activeSection === link.name,
+                  "hover:text-amber-600 dark:hover:text-cyan-500":
+                    activeSection !== link.name,
                 })}
                 href={link.hash}
                 onClick={() => {
