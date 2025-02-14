@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${roboto.className} font-Roboto antialiased leading-8 overflow-x-hidden bg-gray-50 text-lightPrimary dark:bg-slate-900 dark:text-slate-300 transition-colors duration-300`}
+        className={`${roboto.className} font-Roboto antialiased leading-8 overflow-x-hidden bg-gray-100 text-lightPrimary dark:bg-slate-900 dark:text-slate-300 transition-colors duration-300`}
       >
         <ThemeContextProvider>
           <ActiveSectionContextProvider>

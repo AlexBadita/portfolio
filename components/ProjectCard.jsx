@@ -24,24 +24,24 @@ function ProjectCard({ project, index }) {
           <h4>{project.title}</h4>
         </div>
         <p className="flex-1 mx-4 text-justify">{project.description}</p>
-        <div className="flex justify-between gap-2 items-end m-4">
-          <div className="flex gap-2">
+        <div className="flex flex-wrap justify-between gap-2 items-end m-4">
+          <div className="flex flex-wrap gap-2 flex-1">
             {project.technologies.map((tech, index) => (
               <span
-                className="px-3 py-1 rounded-full gradient font-semibold"
+                className="px-3 py-1 mb-1 rounded-full gradient font-semibold"
                 key={index}
               >
                 {tech}
               </span>
             ))}
+            <a
+              href={project.link}
+              target="_blank"
+              className="ml-auto mt-auto transition-transform duration-300 transform hover:-translate-y-2 hover:text-amber-500 dark:hover:text-cyan-500"
+            >
+              <VscGithubAlt size="2.5rem" />
+            </a>
           </div>
-          <a
-            href={project.link}
-            target="_blank"
-            className="transition-transform duration-300 transform hover:-translate-y-2 hover:text-amber-500 dark:hover:text-cyan-500"
-          >
-            <VscGithubAlt size="2rem" />
-          </a>
         </div>
       </div>
     </motion.article>

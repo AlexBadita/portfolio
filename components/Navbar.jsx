@@ -93,7 +93,7 @@ const Navbar = () => {
             ))}
           </ul>
         </motion.div>
-        <div className="fixed top-4 right-4 flex gap-2">
+        <div className="fixed top-4 right-0 md:right-4 flex gap-2">
           <motion.div
             variants={animationNavbar()}
             initial="hidden"
