@@ -35,3 +35,16 @@ export const animationCloseButton = (isOpen) => ({
   whileTap: { rotate: -90, scale: 1, transition: { duration: 0.4 } },
   transition: { type: "spring", stiffness: 300, duration: 1 },
 });
+
+export const animationSkill = (duration) => ({
+  initial: { y: -10 },
+  animate: {
+    y: [10, -10],
+    transition: {
+      duration: duration,
+      ease: "linear",
+      repeat: Infinity,
+      repeatType: "reverse",
+    },
+  },
+});

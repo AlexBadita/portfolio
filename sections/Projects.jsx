@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import useSectionInView from "@/utils/hooks";
+import useSectionInView from "@/hooks/hooks";
 import { projects } from "@/assets/data";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../components/ProjectCard";
 import { motion } from "framer-motion";
-import { animationFromTop } from "@/utils/animations";
+import { animationFromTop } from "@/animations/animations";
 
 const Projects = () => {
   const { ref } = useSectionInView("Projects");

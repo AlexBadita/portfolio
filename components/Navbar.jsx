@@ -9,7 +9,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { useActionSectionContext } from "@/context/active-section-context";
 import { useTheme } from "@/context/theme-context";
-import { animationNavbar, animationCloseButton } from "@/utils/animations";
+import { animationNavbar, animationCloseButton } from "@/animations/animations";
 
 const Navbar = () => {
   const { activeSection, setActiveSection, setTimeOfLastClick } =

@@ -1,9 +1,9 @@
 "use client";
 
-import useSectionInView from "@/utils/hooks";
+import useSectionInView from "@/hooks/hooks";
 import React from "react";
 import { motion } from "framer-motion";
-import { animationFromLeft } from "@/utils/animations";
+import { animationFromLeft } from "@/animations/animations";
 
 const Contact = () => {
   const { ref } = useSectionInView("Contact");

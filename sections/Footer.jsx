@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import {
   animationFromLeftSmooth,
   animationFromTopSmooth,
-} from "@/utils/animations";
+} from "@/animations/animations";
 
 const Footer = () => {
   return (

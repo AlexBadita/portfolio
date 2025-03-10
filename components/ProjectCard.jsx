@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { VscGithubAlt } from "react-icons/vsc";
 import { motion } from "framer-motion";
-import { animationCards } from "@/utils/animations";
+import { animationCards } from "@/animations/animations";
 
 function ProjectCard({ project, index }) {
   return (

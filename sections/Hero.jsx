@@ -2,11 +2,12 @@
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
-import useSectionInView from "@/utils/hooks";
+import useSectionInView from "@/hooks/hooks";
 import { VscGithubAlt } from "react-icons/vsc";
 import { CiLinkedin } from "react-icons/ci";
+import { MdWavingHand } from "react-icons/md";
 import { motion } from "framer-motion";
-import { animationFromTop, animationFromLeft } from "@/utils/animations";
+import { animationFromTop, animationFromLeft } from "@/animations/animations";
 
 const Hero = () => {
   const { ref } = useSectionInView("Home");
@@ -26,7 +27,7 @@ const Hero = () => {
         <Image
           src={assets.profile_img}
           alt="Profile image"
-          objectPosition="top"
+          style={{ objectPosition: "top" }}
         />
       </motion.div>
       <motion.h1
@@ -49,18 +50,19 @@ const Hero = () => {
         variants={animationFromLeft(2)}
         initial="hidden"
         animate="visible"
-        className="text-lg max-w-2xl mx-auto mb-4"
+        className="text-xl max-w-2xl mx-auto mb-4 font-medium"
       >
-        I'm a software developer passionate about building full-stack solutions
-        for web and mobile platforms. I'm eager to grow my skills and explore
-        the exciting potential of artificial intelligence in creating impactful
-        and innovative applications.
+        Hi <MdWavingHand size="1.5rem" className="inline text-amber-500" />! I’m
+        a recent graduate who completed his master's degree. I love building
+        fullstack web and mobile apps. I have some experience working with React
+        and I'm always looking to learn and improve my skills. One area I’m
+        particularly excited about is exploring the potential of AI.
       </motion.p>
       <motion.div
         variants={animationFromLeft(2.5)}
         initial="hidden"
         animate="visible"
-        className="flex items-center gap-6 justify-center"
+        className="flex items-center gap-2 justify-center"
       >
         <a
           href="/resume.pdf"
